@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "379238650813",
-    "firebase_url": "https://coding101-3526b.firebaseio.com",
-    "project_id": "coding101-3526b",
-    "storage_bucket": "coding101-3526b.appspot.com"
+    "project_number": "944990003297",
+    "firebase_url": "https://c101-5d452.firebaseio.com",
+    "project_id": "c101-5d452",
+    "storage_bucket": "c101-5d452.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:379238650813:android:35d7aa9e8a61ea4b",
+        "mobilesdk_app_id": "1:944990003297:android:35d7aa9e8a61ea4b",
         "android_client_info": {
           "package_name": "com.example.coding101app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "379238650813-n7ng7ni5v2pp2vfb3qcr6jhsmrmlcp7a.apps.googleusercontent.com",
+          "client_id": "944990003297-mh0c9upk5govlhaamvgecqac50vanbbe.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.coding101app",
@@ -23,13 +23,13 @@
           }
         },
         {
-          "client_id": "379238650813-im6e6om4kovrup4qnnvahr0c3e2deefk.apps.googleusercontent.com",
+          "client_id": "944990003297-m0clk0fgc2ab3ddvnka9p5l3h1rgsj32.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCaKETnIOIS7y7o8R0ZTuvL-jlbEW0R9o0"
+          "current_key": "AIzaSyDyX_zaoI32zKTdQw8gULGzs6QRQriEnSM"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "379238650813-im6e6om4kovrup4qnnvahr0c3e2deefk.apps.googleusercontent.com",
+              "client_id": "944990003297-m0clk0fgc2ab3ddvnka9p5l3h1rgsj32.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

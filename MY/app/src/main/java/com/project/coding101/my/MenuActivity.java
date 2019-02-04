@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.project.coding101.my.R;
 
 public class MenuActivity extends AppCompatActivity {
     // public void main(String args[]){}

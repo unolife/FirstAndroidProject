@@ -90,14 +90,12 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
                             startActivity(intent);
                             //updateUI(user);
                         } else {
-                            // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
                             Toast.makeText(LoginActivity.this, "아이디와 비밀번호를 다시 확인해주세요.",
                                     Toast.LENGTH_SHORT).show();

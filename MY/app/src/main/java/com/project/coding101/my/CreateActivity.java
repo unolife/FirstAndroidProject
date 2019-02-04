@@ -1,5 +1,6 @@
 package com.project.coding101.my;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +20,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class CreateActivity extends AppCompatActivity {
-    // public void main(String args[]){}
     private FirebaseAuth mAuth;
     private String TAG = "Email, PassWord";
 
@@ -42,35 +42,25 @@ public class CreateActivity extends AppCompatActivity {
 
         email_textfield.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 try{email = s.toString();}catch (NullPointerException e){}
             }
-
             @Override
             public void afterTextChanged(Editable s) {
-
             }
         });
         password_textfield.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 try{password = s.toString();}catch (NullPointerException e){}
             }
-
             @Override
-            public void afterTextChanged(Editable s) {
-
-            }
+            public void afterTextChanged(Editable s) {}
         });
 
         btn_join.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +80,8 @@ public class CreateActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "createUserWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
+                            Toast.makeText(CreateActivity.this, "회원가입을 성공하셨습니다.",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(CreateActivity.this,LoginActivity.class));
                         } else {
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(CreateActivity.this, "회원가입 실패",Toast.LENGTH_SHORT).show();

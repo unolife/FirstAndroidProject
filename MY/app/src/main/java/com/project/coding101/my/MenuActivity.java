@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-public class MenuActivity extends AppCompatActivity implements View.OnClickListener{
+public class MenuActivity extends AppCompatActivity{
 
     private FirebaseAuth mAuth;
 
@@ -23,30 +23,19 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
         btn_logout = findViewById(R.id.btn_logout);
 
+        mAuth = FirebaseAuth.getInstance();
+
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //로그아웃 기능
+                mAuth.signOut();
+                Toast.makeText(MenuActivity.this,"로그아웃 되셨습니다.",Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(new Intent(MenuActivity.this,LoginActivity.class));
+
             }
         });
 
     }
-//    @Override
-    public void onClick(View v) {
-//        int i =v.getId();
-//        switch (i){
-//            case R.id.btn_calculate:
-//                //Intent intent = new Intent(MenuActivity.this,CalculateActivity.class);
-//                //startActivity(intent);
-//                return;
-//            case R.id.btn_introduce:
-//                return;
-//            case R.id.btn_logout:
-//                signOut();
-//                Toast.makeText(MenuActivity.this,"로그아웃 되셨습니다.",Toast.LENGTH_SHORT).show();
-//                startActivity(new Intent(MenuActivity.this,LoginActivity.class));
-//                return;
-        }
-//
-//    }
 }

@@ -42,12 +42,10 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         TextInputEditText_ID.addTextChangedListener(new TextWatcher() {
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 id = s.toString();}
-            public void afterTextChanged(Editable s) {
-            }
+            public void afterTextChanged(Editable s) {}
         });
         TextInputEditText_password.addTextChangedListener(new TextWatcher() {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -67,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 signIn(id, password);
+
             }
         });
 
@@ -75,13 +74,16 @@ public class LoginActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-        startActivity(intent);
-        //가입 중이면 메뉴화면으로 보내기
         //updateUI(currentUser);
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
     private void signIn(String email, String password) {
-        Log.d(TAG, "signIn:" + email);
+
         if (!validateForm()) {
             return;
         }
@@ -94,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
                             startActivity(intent);
+                            finish();
                             //updateUI(user);
                         } else {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());

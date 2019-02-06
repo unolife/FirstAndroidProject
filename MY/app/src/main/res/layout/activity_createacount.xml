@@ -13,21 +13,14 @@
         android:textColor="#ff555555"
         android:textSize="15dp"
         android:text="이메일"/>
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
+
         <EditText
+            android:layout_gravity="center"
             android:id="@+id/EditText_Email"
-            android:layout_width="260dp"
+            android:layout_width="350dp"
             android:layout_height="35dp"
             android:background="@drawable/edit_background_on"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:text="이메일 인증"/>
-    </LinearLayout>
+
     <TextView
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"

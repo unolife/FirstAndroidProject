@@ -23,10 +23,9 @@ public class CreateActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private String TAG = "Email, PassWord";
 
-    String email,password;
     EditText email_textfield,password_textfield ;
 
-    Button btn_join;
+    Button btn_join, btn_emailauth;
 
 
     @Override
@@ -37,35 +36,18 @@ public class CreateActivity extends AppCompatActivity {
         email_textfield = findViewById(R.id.EditText_Email);
         password_textfield = findViewById(R.id.EditText_Password);
         btn_join = findViewById(R.id.Button_join);
-
+        btn_emailauth = findViewById(R.id.btn_emailauth);
         mAuth = FirebaseAuth.getInstance();
-
-        email_textfield.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try{email = s.toString();}catch (NullPointerException e){}
-            }
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
-        password_textfield.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try{password = s.toString();}catch (NullPointerException e){}
-            }
-            @Override
-            public void afterTextChanged(Editable s) {}
-        });
 
         btn_join.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                createAccount(email,password);
+                createAccount(email_textfield.getText().toString(),password_textfield.getText().toString());
+            }
+        });
+
+        btn_emailauth.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                sendEmailVerification();
             }
         });
     }
@@ -74,10 +56,11 @@ public class CreateActivity extends AppCompatActivity {
 
         if(!validateForm()){return;}
 
-        mAuth.createUserWithEmailAndPassword(email, password)
+        mAuth.createUserWithEmailAndPassword(email, password )
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                         if (task.isSuccessful()) {
                             Log.d(TAG, "createUserWithEmail:success");
                             Toast.makeText(CreateActivity.this, "회원가입을 성공하셨습니다.",Toast.LENGTH_SHORT).show();
@@ -85,6 +68,24 @@ public class CreateActivity extends AppCompatActivity {
                         } else {
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(CreateActivity.this, "회원가입 실패",Toast.LENGTH_SHORT).show();
+                            //에러 두가지 경우 예외처리하기
+                        }
+                    }
+                });
+    }
+    private void sendEmailVerification() {
+        findViewById(R.id.btn_emailauth).setEnabled(false);
+
+        final FirebaseUser user = mAuth.getCurrentUser();
+        user.sendEmailVerification().addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    public void onComplete(@NonNull Task<Void> task) {
+                        btn_emailauth.setEnabled(true);
+
+                        if (task.isSuccessful()) {
+                            Toast.makeText(CreateActivity.this, user.getEmail()+"로 이메일 인증을 보냈습니다.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Log.e(TAG, "sendEmailVerification", task.getException());
+                            Toast.makeText(CreateActivity.this, "이메일 전송을 실패하였습니다.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

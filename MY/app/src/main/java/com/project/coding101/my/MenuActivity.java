@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class MenuActivity extends AppCompatActivity{
@@ -15,6 +17,7 @@ public class MenuActivity extends AppCompatActivity{
     private FirebaseAuth mAuth;
 
     Button btn_logout;
+    TextView user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +25,10 @@ public class MenuActivity extends AppCompatActivity{
         setContentView(R.layout.activity_menu);
 
         btn_logout = findViewById(R.id.btn_logout);
+        user = findViewById(R.id.TextView_user);
 
         mAuth = FirebaseAuth.getInstance();
+
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +41,11 @@ public class MenuActivity extends AppCompatActivity{
 
             }
         });
+
+        FirebaseUser u1 = mAuth.getCurrentUser();
+        user.setText(u1.getEmail()+"님 안녕하세요!");
+        //DB연동 후에 닉네임으로 바꿀 것
+
 
     }
 }

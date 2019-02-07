@@ -18,6 +18,7 @@ public class MenuActivity extends AppCompatActivity{
 
     Button btn_logout;
     TextView user;
+    Button btn_introduce;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,15 @@ public class MenuActivity extends AppCompatActivity{
         FirebaseUser u1 = mAuth.getCurrentUser();
         user.setText(u1.getEmail()+"님 안녕하세요!");
         //DB연동 후에 닉네임으로 바꿀 것
+
+        btn_introduce = (Button)findViewById(R.id.btn_introduce);
+        btn_introduce.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), IntroActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

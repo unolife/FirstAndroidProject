@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IntroActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="융합소프트웨어학부"
+        android:textSize="30sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/major_soft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="응용소프트웨어 전공"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="120dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/major_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="데이터테크놀로지 전공"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="120dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/intro_academy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="학회 소개"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="165dp"
+        android:layout_marginBottom="60dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="90dp"
+        android:layout_marginLeft="35sp"
+        android:src="@drawable/mj_uni" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tel :  \n\n\nMap : 인문캠퍼스 본관 3층 "
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="130dp"
+        />
+
+    <TextView
+        android:id="@+id/mj_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="02-300-0643"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="85dp"
+        android:layout_marginTop="130dp"
+        android:autoLink="phone"/>
+
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/imageView1"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="180dp"
+        android:layout_marginRight="25dp"
+        android:text="융합소프트웨어학부는 소프트웨어 융합 시대에 걸맞도록
+        \n국제화된 감각, 인문학적 소양을 겸비한 소프트웨어
+        \n엔지니어를 양성하는 것을 교육 목표로 삼는다. 세부 전공인
+        응용소프트웨어와 데이터테크놀로지를 중심으로 세부 융합
+        도메인에 맞는 전문성 있고 체계적인 교육을 실시하여
+        \n전문가를 양성하고자 한다. " />
+
+</RelativeLayout>

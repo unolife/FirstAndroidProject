@@ -19,16 +19,15 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class CreateActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    FirebaseDatabase database =FirebaseDatabase.getInstance();
     private String TAG = "Email, PassWord";
 
-    EditText email_textfield,password_textfield,password2_textfield,collagenum,nickname,name,tel ;
-
+    EditText email_textfield,password_textfield,password2_textfield;
     Button btn_join;
-
-    private FirebaseAnalytics property;
 
 
     @Override
@@ -39,9 +38,6 @@ public class CreateActivity extends AppCompatActivity {
         email_textfield = findViewById(R.id.EditText_Email);
         password_textfield = findViewById(R.id.EditText_Password);
         password2_textfield = findViewById(R.id.EditText_Password2);
-        name = findViewById(R.id.EditText_name);
-        nickname =findViewById(R.id.EditText_nickname);
-        collagenum=findViewById(R.id.EditText_collagenum);
 
 
         btn_join = findViewById(R.id.Button_join);
@@ -66,11 +62,11 @@ public class CreateActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
-                            Log.d(TAG, "createUserWithEmail:success");
                             Toast.makeText(CreateActivity.this, "회원가입을 성공하셨습니다.",Toast.LENGTH_SHORT).show();
+                            setUser();
                             startActivity(new Intent(CreateActivity.this,LoginActivity.class));
                         } else {
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            Log.w(TAG, "회원가입 실패!", task.getException());
                             Toast.makeText(CreateActivity.this, "회원가입 실패",Toast.LENGTH_SHORT).show();
                             //에러 두가지 경우 예외처리하기
                         }
@@ -105,8 +101,17 @@ public class CreateActivity extends AppCompatActivity {
         }
         return valid;
     }
-    private void setProperty(){
+    private void setUser(){
         //DB공부 후, 달기
+        String email = email_textfield.getText().toString();
+        String name = ((EditText)findViewById(R.id.EditText_name)).getText().toString();
+        String nickname =((EditText)findViewById(R.id.EditText_nickname)).getText().toString();
+        int collagenum=Integer.parseInt(((EditText)findViewById(R.id.EditText_collagenum)).getText().toString());
+        int tel=Integer.parseInt(((EditText)findViewById(R.id.EditText_tel)).getText().toString());
+
+        User user = new User(name,email,nickname,collagenum,tel);
+
+        database.getReference().child("user").push().setValue(user);
     }
 
 }

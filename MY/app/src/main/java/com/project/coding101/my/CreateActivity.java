@@ -96,13 +96,13 @@ public class CreateActivity extends AppCompatActivity {
             password_textfield.setError(null);
         }
 
-//        String password2 = password2_textfield.getText().toString();
-//        if(password!=password2){
-//            password2_textfield.setError("비밀번호가 일치하지 않습니다.");
-//            valid =false;
-//        }else{
-//            password2_textfield.setError(null);
-//        }
+        String password2 = password2_textfield.getText().toString();
+        if(password.equals(password2)){
+            password2_textfield.setError(null);
+        }else{
+            password2_textfield.setError("비밀번호가 일치하지 않습니다.");
+            valid =false;
+        }
         return valid;
     }
     private void setProperty(){

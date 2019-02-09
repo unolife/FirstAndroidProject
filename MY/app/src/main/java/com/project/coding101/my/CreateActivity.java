@@ -76,6 +76,30 @@ public class CreateActivity extends AppCompatActivity {
                     }
                 });
     }
+
+    private void setUser(){
+        //DB공부 후, 달기
+        String email = email_textfield.getText().toString();
+        String name = ((EditText)findViewById(R.id.EditText_name)).getText().toString();
+        String nickname =((EditText)findViewById(R.id.EditText_nickname)).getText().toString();
+        String collagenum=((EditText)findViewById(R.id.EditText_collagenum)).getText().toString();
+        String tel=((EditText)findViewById(R.id.EditText_tel)).getText().toString();
+
+        database = FirebaseDatabase.getInstance().getReference();
+        User user = new User(name,email,nickname,collagenum,tel);
+        //참조, DB예외 잡기
+        database.child("users").child(tel).setValue(user).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                //계정삭제코드
+            }
+        }).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+            }
+        });
+    }
+
     private boolean validateForm(){
         boolean valid =true;
 
@@ -104,22 +128,16 @@ public class CreateActivity extends AppCompatActivity {
         }
         return valid;
     }
-    private void setUser(){
-        //DB공부 후, 달기
-        String email = email_textfield.getText().toString();
-        String name = ((EditText)findViewById(R.id.EditText_name)).getText().toString();
-        String nickname =((EditText)findViewById(R.id.EditText_nickname)).getText().toString();
-        String collagenum=((EditText)findViewById(R.id.EditText_collagenum)).getText().toString();
-        String tel=((EditText)findViewById(R.id.EditText_tel)).getText().toString();
 
-        database = FirebaseDatabase.getInstance().getReference();
-        User user = new User(name,email,nickname,collagenum,tel);
-        database.child("users").child(email).setValue(user).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                //계정삭제코드
-            }
-        });
+    private String userId(String email){
+        //DB path 에러 방지
+        String userId = "";
+        String e = new String(email);
+        String emailarray[] = e.split(",.#$]");
+        for (int i =0; i<emailarray.length;i++){
+            userId += emailarray[i];
+        }
+        return userId;
     }
 
 }

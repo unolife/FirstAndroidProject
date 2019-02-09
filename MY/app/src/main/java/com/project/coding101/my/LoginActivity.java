@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "EmailPassword";
@@ -40,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         join = findViewById(R.id.Button_join);
 
         mAuth = FirebaseAuth.getInstance();
+
 
         TextInputEditText_ID.addTextChangedListener(new TextWatcher() {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}

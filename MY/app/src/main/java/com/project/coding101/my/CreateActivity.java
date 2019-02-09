@@ -14,16 +14,19 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class CreateActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    FirebaseDatabase database =FirebaseDatabase.getInstance();
+    private DatabaseReference database;
     private String TAG = "Email, PassWord";
 
     EditText email_textfield,password_textfield,password2_textfield;
@@ -106,12 +109,17 @@ public class CreateActivity extends AppCompatActivity {
         String email = email_textfield.getText().toString();
         String name = ((EditText)findViewById(R.id.EditText_name)).getText().toString();
         String nickname =((EditText)findViewById(R.id.EditText_nickname)).getText().toString();
-        int collagenum=Integer.parseInt(((EditText)findViewById(R.id.EditText_collagenum)).getText().toString());
-        int tel=Integer.parseInt(((EditText)findViewById(R.id.EditText_tel)).getText().toString());
+        String collagenum=((EditText)findViewById(R.id.EditText_collagenum)).getText().toString();
+        String tel=((EditText)findViewById(R.id.EditText_tel)).getText().toString();
 
+        database = FirebaseDatabase.getInstance().getReference();
         User user = new User(name,email,nickname,collagenum,tel);
-
-        database.getReference().child("user").push().setValue(user);
+        database.child("users").child(email).setValue(user).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                //계정삭제코드
+            }
+        });
     }
 
 }

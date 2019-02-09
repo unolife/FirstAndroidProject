@@ -5,13 +5,13 @@ public class User {
     public String username;
     public String email;
     public String nickname;
-    public int collagenum;
-    public int tel;
+    public String collagenum;
+    public String tel;
 
     public User(){}
 
     public User(String username, String email,String nickname,
-                int collagenum,int tel){
+                String collagenum,String tel){
         this.username = username;
         this.nickname = nickname;
         this.email    = email;

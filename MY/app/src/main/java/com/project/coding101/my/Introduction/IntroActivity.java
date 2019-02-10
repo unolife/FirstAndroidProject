@@ -1,4 +1,4 @@
-package com.project.coding101.my;
+package com.project.coding101.my.Introduction;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -12,6 +12,8 @@ import android.net.Uri;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.project.coding101.my.R;
 
 public class IntroActivity extends AppCompatActivity {
 

@@ -18,7 +18,7 @@
         </activity>
         <activity android:name=".CreateActivity" />
         <activity android:name=".MenuActivity" />
-        <activity android:name=".IntroActivity"></activity>
+        <activity android:name=".Introduction.IntroActivity"></activity>
     </application>
 
 </manifest>

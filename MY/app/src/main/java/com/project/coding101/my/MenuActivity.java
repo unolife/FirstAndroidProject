@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.project.coding101.my.Introduction.IntroActivity;
 
 
 public class MenuActivity extends AppCompatActivity{

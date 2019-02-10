@@ -3,9 +3,6 @@ package com.project.coding101.my.gradeCalculator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.TabLayout.OnTabSelectedListener;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,11 +21,11 @@ public class CalculateActivity extends AppCompatActivity {
 
 
         //자바 파일에서 어뎁터 생성
-        //PagerAdapter pageradapter = new PagerAdapter(getSupportFragmentManager());
+        PagerAdapter pageradapter = new PagerAdapter(getSupportFragmentManager());
 
         //뷰 페이저 ID를 찾고, 뷰페이저 어뎁터랑 연결
         final ViewPager viewpager = findViewById(R.id.viewpager);
-        //viewpager.setAdapter(pageradapter);
+        viewpager.setAdapter(pageradapter);
 
         //탭설정
         final TabLayout tab = findViewById(R.id.tabs);

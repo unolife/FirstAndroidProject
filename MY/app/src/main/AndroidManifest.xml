@@ -18,7 +18,13 @@
         </activity>
         <activity android:name=".CreateActivity" />
         <activity android:name=".MenuActivity" />
-        <activity android:name=".Introduction.IntroActivity"></activity>
+        <activity android:name=".Introduction.IntroActivity"
+                  android:label="학과 소개"/>
+        <activity android:name=".Introduction.Major_soft.Application_Soft"
+                  android:label="응용소프트웨어"/>
+        <activity android:name=".Introduction.Major_soft.Soft_frag1" />
+        <activity android:name=".Introduction.Major_soft.Soft_frag2" />
+        <activity android:name=".Introduction.Major_soft.Soft_frag3"></activity>
     </application>
 
 </manifest>

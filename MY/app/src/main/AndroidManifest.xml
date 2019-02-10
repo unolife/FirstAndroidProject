@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".CreateActivity" />
-        <activity android:name=".MenuActivity" />
+        <activity android:name=".MenuActivity"
+                  android:label="메뉴"/>
         <activity android:name=".Introduction.IntroActivity"
                   android:label="학과 소개"/>
         <activity android:name=".Introduction.Major_soft.Application_Soft"

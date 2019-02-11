@@ -1,9 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Introduction.Major_soft.Soft_frag2">
+    tools:context=".Introduction.Major_soft.Soft_frag2"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:src="@drawable/soft_choi"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름 : 최성운 \n\n연락처 :  \n\nE-mail : choisw@mju.ac.kr \n\n교수실 : "
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="210dp"/>
+
+    <TextView
+        android:id="@+id/tel11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="02-300-0648"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="53dp"
+        android:layout_marginLeft="260dp"
+        android:autoLink="phone"/>
+
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:src="@drawable/soft_kim"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="170dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름 : 김일주 \n\n연락처 : \n\nE-mail : ijkim@mju.ac.kr \n\n교수실 : "
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="178dp"/>
+
+    <TextView
+        android:id="@+id/tel22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="02-300-0636"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="210dp"
+        android:layout_marginLeft="260dp"
+        android:autoLink="phone"/>
+
+</RelativeLayout>

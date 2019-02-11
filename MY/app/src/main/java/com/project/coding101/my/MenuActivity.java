@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.project.coding101.my.Introduction.IntroActivity;
+import com.project.coding101.my.studentBoard.MainBoard;
 
 
 public class MenuActivity extends AppCompatActivity{
@@ -53,6 +54,14 @@ public class MenuActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), IntroActivity.class);
+                startActivity(intent);
+            }
+        });
+        btn_introduce = (Button)findViewById(R.id.btn_board);
+        btn_introduce.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainBoard.class);
                 startActivity(intent);
             }
         });

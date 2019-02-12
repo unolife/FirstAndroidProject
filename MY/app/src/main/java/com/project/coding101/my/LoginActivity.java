@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     TextInputEditText TextInputEditText_ID, TextInputEditText_password;
-    Button Button_Iogin, join;
+    Button Button_Iogin, join, find;
     String id, password;
 
 
@@ -40,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Button_Iogin = findViewById(R.id.Button_Iogin);
         join = findViewById(R.id.Button_join);
+        find = findViewById(R.id.Button_find);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -70,7 +71,14 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+        find.setOnClickListener(new View.OnClickListener(){
 
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, FindActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
     public void onStart() {

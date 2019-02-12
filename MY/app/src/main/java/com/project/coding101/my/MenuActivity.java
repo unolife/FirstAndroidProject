@@ -2,6 +2,7 @@ package com.project.coding101.my;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.sax.StartElementListener;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.project.coding101.my.Introduction.IntroActivity;
 import com.project.coding101.my.gradeCalculator.CalculateActivity;
+import com.project.coding101.my.mypage.Mypage;
 import com.project.coding101.my.studentBoard.MainBoard;
 
 
@@ -19,9 +21,8 @@ public class MenuActivity extends AppCompatActivity{
 
     private FirebaseAuth mAuth;
 
-    Button btn_logout;
+    Button btn_logout, btn_mypage, btn_introduce,btn_calculate;
     TextView user;
-    Button btn_introduce, btn_calculate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class MenuActivity extends AppCompatActivity{
 
         btn_logout = findViewById(R.id.btn_logout);
         user = findViewById(R.id.TextView_user);
+        btn_mypage = findViewById(R.id.btn_mypage);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -43,6 +45,14 @@ public class MenuActivity extends AppCompatActivity{
                 finish();
                 startActivity(new Intent(MenuActivity.this,LoginActivity.class));
 
+            }
+        });
+
+        btn_mypage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, Mypage.class);
+                startActivity(intent);
             }
         });
 

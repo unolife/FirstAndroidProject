@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.project.coding101.my.Introduction.IntroActivity;
+import com.project.coding101.my.gradeCalculator.CalculateActivity;
 import com.project.coding101.my.studentBoard.MainBoard;
 
 
@@ -20,7 +21,7 @@ public class MenuActivity extends AppCompatActivity{
 
     Button btn_logout;
     TextView user;
-    Button btn_introduce;
+    Button btn_introduce, btn_calculate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,14 @@ public class MenuActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MainBoard.class);
+                startActivity(intent);
+            }
+        });
+        btn_calculate = (Button)findViewById(R.id.btn_calculate);
+        btn_calculate.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CalculateActivity.class);
                 startActivity(intent);
             }
         });

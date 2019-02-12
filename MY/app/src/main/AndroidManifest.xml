@@ -36,7 +36,8 @@
         <activity android:name=".Introduction.Major_soft.Soft_frag2" />
         <activity android:name=".Introduction.Major_soft.Soft_frag3" />
         <activity android:name=".Introduction.Major_soft.Soft_table" />
-        <activity android:name=".Introduction.Major_soft.Soft_curry"></activity>
+        <activity android:name=".Introduction.Major_soft.Soft_curry" />
+        <activity android:name=".Introduction.Major_data.Data_Tech"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.project.coding101.my.Introduction;
 
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.text.util.Linkify;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import android.content.Intent;
 import android.widget.TextView;
 
+import com.project.coding101.my.Introduction.Major_data.Data_Tech;
 import com.project.coding101.my.Introduction.Major_soft.Application_Soft;
 import com.project.coding101.my.R;
 
@@ -30,14 +32,14 @@ public class IntroActivity extends AppCompatActivity {
             }
         });
 
-//        Button data_btn = (Button) findViewById(R.id.major_data);
-//        data_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), Data_Tech.class);
-//                startActivity(intent);
-//            }
-//        });
+        Button data_btn = (Button)findViewById(R.id.major_data);
+        data_btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Data_Tech.class);
+                startActivity(intent);
+            }
+        });
 
 //        Button acad_btn = (Button) findViewById(R.id.intro_academy);
 //        acad_btn.setOnClickListener(new View.OnClickListener() {

@@ -37,6 +37,7 @@ public class Fragment01 extends Fragment {
     EditText edittext_comscoreinput,edittext_one_one,edittext_one_two,edittext_two_one,edittext_two_two,edittext_three_one,edittext_three_two,edittext_four_one,edittext_four_two;
     ToggleButton btn_comone,btn_comtwo,btn_comthree,btn_comfour,btn_comscoreinput;
     TextView textview_comresult;
+    String total;
 
     public Fragment01 (){
     }
@@ -63,6 +64,8 @@ public class Fragment01 extends Fragment {
         btn_comscoreinput = view1.findViewById(R.id.btn_comscoreinput);
         textview_comresult = view1.findViewById(R.id.TextView_comresult);
 
+        initData();
+
         //데이터 저장
 
         btn_comscoreinput.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -73,16 +76,18 @@ public class Fragment01 extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             Grade grade = dataSnapshot.getValue(Grade.class);
-                            grade.input = Integer.parseInt(edittext_comscoreinput.getText().toString());
+                            try{grade.input = Integer.parseInt(edittext_comscoreinput.getText().toString());
+                                grade.total = grade.input - (grade.one_one + grade.one_two + grade.two_one
+                                        + grade.two_two + grade.three_one + grade.three_two + grade.four_one + grade.four_one);}catch (Exception e){grade.input=0;}
                             gradeDB.setValue(grade);
+                            textview_comresult.setText(grade.total.toString());
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {}
                     });
                     edittext_comscoreinput.setEnabled(false);
                     edittext_comscoreinput.setTextColor(Color.BLACK);
-                    edittext_comscoreinput.setBackgroundResource(R.drawable.edit_background);
-//                    textview_comresult.setText(Calculation());//DB읽어오기 수정!
+                    edittext_comscoreinput.setBackgroundResource(R.drawable.edit_background);//DB읽어오기 수정!
                     edittext_one_one.requestFocus();
                 }else{
                     edittext_comscoreinput.setBackgroundResource(R.drawable.edit_background_on);
@@ -99,9 +104,13 @@ public class Fragment01 extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             Grade grade = dataSnapshot.getValue(Grade.class);
-                            grade.one_one = Integer.parseInt(edittext_one_one.getText().toString());
-                            grade.one_two = Integer.parseInt(edittext_one_two.getText().toString());
+                            try{grade.one_one = Integer.parseInt(edittext_one_one.getText().toString());
+                                grade.one_two = Integer.parseInt(edittext_one_two.getText().toString());
+                                grade.total = grade.input - (grade.one_one + grade.one_two + grade.two_one
+                                        + grade.two_two + grade.three_one + grade.three_two + grade.four_one + grade.four_one);}
+                                catch (Exception e){grade.one_one=0; grade.one_two=0;}
                             gradeDB.setValue(grade);
+                            textview_comresult.setText(grade.total.toString());
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {}
@@ -113,7 +122,6 @@ public class Fragment01 extends Fragment {
                     edittext_one_two.setTextColor(Color.BLACK);
                     edittext_one_two.setBackgroundResource(R.drawable.edit_background);
                     edittext_two_one.requestFocus();
-//                    textview_comresult.setText(Calculation());
                 }else{
                     edittext_one_one.setBackgroundResource(R.drawable.edit_background_on);
                     edittext_one_one.setEnabled(true);
@@ -131,15 +139,18 @@ public class Fragment01 extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             Grade grade = dataSnapshot.getValue(Grade.class);
-                            grade.two_one = Integer.parseInt(edittext_two_one.getText().toString());
-                            grade.two_two = Integer.parseInt(edittext_two_two.getText().toString());
+                            try{grade.two_one = Integer.parseInt(edittext_two_one.getText().toString());
+                                grade.two_two = Integer.parseInt(edittext_two_two.getText().toString());
+                                grade.total = grade.input - (grade.one_one + grade.one_two + grade.two_one
+                                        + grade.two_two + grade.three_one + grade.three_two + grade.four_one + grade.four_one);}
+                                catch (Exception e){grade.two_one=0; grade.two_two=0;}
                             gradeDB.setValue(grade);
+                            textview_comresult.setText(grade.total.toString());
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {}
                     });
 
-//                    database.child("users").child(userId(currentUser.getEmail())).child("gradeCalculator").setValue(grade);
                     edittext_two_one.setEnabled(false);
                     edittext_two_one.setTextColor(Color.BLACK);
                     edittext_two_one.setBackgroundResource(R.drawable.edit_background);
@@ -147,7 +158,6 @@ public class Fragment01 extends Fragment {
                     edittext_two_two.setTextColor(Color.BLACK);
                     edittext_two_two.setBackgroundResource(R.drawable.edit_background);
                     edittext_three_one.requestFocus();
-//                    textview_comresult.setText(Calculation());
                 }else{
                     edittext_two_one.setBackgroundResource(R.drawable.edit_background_on);
                     edittext_two_one.setEnabled(true);
@@ -164,15 +174,21 @@ public class Fragment01 extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             Grade grade = dataSnapshot.getValue(Grade.class);
-                            grade.three_one = Integer.parseInt(edittext_three_one.getText().toString());
-                            grade.three_two = Integer.parseInt(edittext_three_two.getText().toString());
+                            try{grade.three_one = Integer.parseInt(edittext_three_one.getText().toString());
+                                grade.three_two = Integer.parseInt(edittext_three_two.getText().toString());
+                                grade.total = grade.input - (grade.one_one + grade.one_two + grade.two_one
+                                        + grade.two_two + grade.three_one + grade.three_two + grade.four_one + grade.four_one);}
+                                catch (Exception e ){
+                                grade.three_one = 0;
+                                grade.three_two = 0;
+                                }
                             gradeDB.setValue(grade);
+                            textview_comresult.setText(grade.total.toString());
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {}
                     });
 
-//                    database.child("users").child(userId(currentUser.getEmail())).child("gradeCalculator").setValue(grade);
                     edittext_three_one.setEnabled(false);
                     edittext_three_one.setTextColor(Color.BLACK);
                     edittext_three_one.setBackgroundResource(R.drawable.edit_background);
@@ -180,7 +196,6 @@ public class Fragment01 extends Fragment {
                     edittext_three_two.setTextColor(Color.BLACK);
                     edittext_three_two.setBackgroundResource(R.drawable.edit_background);
                     edittext_four_one.requestFocus();
-//                    textview_comresult.setText();
                 }else{
                     edittext_three_one.setBackgroundResource(R.drawable.edit_background_on);
                     edittext_three_one.setEnabled(true);
@@ -198,22 +213,22 @@ public class Fragment01 extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             Grade grade = dataSnapshot.getValue(Grade.class);
-                            grade.four_one = Integer.parseInt(edittext_four_one.getText().toString());
-                            grade.four_two = Integer.parseInt(edittext_four_two.getText().toString());
+                            try{grade.four_one = Integer.parseInt(edittext_four_one.getText().toString());
+                                grade.four_two = Integer.parseInt(edittext_four_two.getText().toString());}catch (Exception e){
+                                grade.four_one=0; grade.four_two =0;
+                            }
                             gradeDB.setValue(grade);
+                            textview_comresult.setText(grade.total.toString());
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {}
                     });
-
-//                    database.child("users").child(userId(currentUser.getEmail())).child("gradeCalculator").setValue(grade);
                     edittext_four_one.setEnabled(false);
                     edittext_four_one.setTextColor(Color.BLACK);
                     edittext_four_one.setBackgroundResource(R.drawable.edit_background);
                     edittext_four_two.setEnabled(false);
                     edittext_four_two.setTextColor(Color.BLACK);
                     edittext_four_two.setBackgroundResource(R.drawable.edit_background);
-//                    btn_comscoreinput.setText();
                 }else{
                     edittext_four_one.setBackgroundResource(R.drawable.edit_background_on);
                     edittext_four_one.setEnabled(true);
@@ -225,10 +240,51 @@ public class Fragment01 extends Fragment {
 
         return  view1;
     }
-//    public String Calculation(){
-//        Integer ans =input -(one_one+one_two+two_one+
-//        two_two+three_one+three_two+four_one+four_two);
-//        return ans.toString();
+
+    private void initData(){
+        gradeDB.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Grade grade = dataSnapshot.getValue(Grade.class);
+                try{edittext_comscoreinput.setText(grade.input.toString());
+                    edittext_comscoreinput.setTextColor(Color.BLACK);
+                    edittext_one_one.setText(grade.one_one.toString());
+                    edittext_one_one.setTextColor(Color.BLACK);
+                    edittext_one_two.setText(grade.one_two.toString());
+                    edittext_one_two.setTextColor(Color.BLACK);
+                    edittext_two_one.setText(grade.getTwo_one().toString());
+                    edittext_two_one.setTextColor(Color.BLACK);
+                    edittext_two_two.setText(grade.getTwo_two().toString());
+                    edittext_two_two.setTextColor(Color.BLACK);
+                    edittext_three_one.setText(grade.getThree_one().toString());
+                    edittext_three_one.setTextColor(Color.BLACK);
+                    edittext_three_two.setText(grade.getThree_two().toString());
+                    edittext_three_two.setTextColor(Color.BLACK);
+                    edittext_four_one.setText(grade.getFour_one().toString());
+                    edittext_four_one.setTextColor(Color.BLACK);
+                    edittext_four_two.setText(grade.getFour_two().toString());
+                    edittext_four_two.setTextColor(Color.BLACK);}catch (NullPointerException e){}
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+//    private void Calculate(){
+//        gradeDB.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                Grade grade = dataSnapshot.getValue(Grade.class);
+//                Integer total = grade.input - (grade.one_one + grade.one_two + grade.two_one + grade.two_two + grade.three_one + grade.three_two + grade.four_one + grade.four_one);
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 //    }
 
     private String userId(String email){

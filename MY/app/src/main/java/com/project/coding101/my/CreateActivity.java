@@ -67,6 +67,7 @@ public class CreateActivity extends AppCompatActivity {
                             try{setUser();
                             Toast.makeText(CreateActivity.this,"회원가입에 성공하셨습니다.",Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(CreateActivity.this,MenuActivity.class));}catch (Exception e){
+                                Log.w(TAG, "회원가입 실패!", task.getException());
                                 Toast.makeText(CreateActivity.this, "회원가입 실패",Toast.LENGTH_SHORT).show();
                                 currentUser.delete();
                             }
@@ -88,7 +89,7 @@ public class CreateActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance().getReference();
         User user = new User(name, email, nickname, collagenum, tel);
-        Grade grade = new Grade();
+        Grade grade = new Grade(0,0,0,0,0,0,0,0,0,0);
 
         database.child("users").child(userId(email)).setValue(user);
         database.child("users").child(userId(email)).child("gradeCalculator").setValue(grade);

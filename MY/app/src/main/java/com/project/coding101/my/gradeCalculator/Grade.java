@@ -10,7 +10,7 @@ public class Grade {
     public Integer three_two;
     public Integer four_one;
     public Integer four_two;
-
+    public Integer total;
     public Integer getInput() {
         return input;
     }
@@ -84,6 +84,19 @@ public class Grade {
     }
 
     public Grade(){}
+    public Grade(Integer input, Integer one_one, Integer one_two, Integer two_one, Integer two_two, Integer three_one, Integer three_two
+    ,Integer four_one, Integer four_two, Integer total){
+        this.input=input;
+        this.one_one=one_one;
+        this.one_two=one_two;
+        this.two_one=two_one;
+        this.two_two=two_two;
+        this.three_one=three_one;
+        this.three_two=three_two;
+        this.four_one=four_one;
+        this.four_two=four_two;
+        this.total =total;
+    }
 
 
 }

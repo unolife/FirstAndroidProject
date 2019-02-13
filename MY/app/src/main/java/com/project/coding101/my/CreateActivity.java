@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.project.coding101.my.gradeCalculator.Grade;
 
 public class CreateActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -87,8 +88,10 @@ public class CreateActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance().getReference();
         User user = new User(name, email, nickname, collagenum, tel);
+        Grade grade = new Grade();
 
         database.child("users").child(userId(email)).setValue(user);
+        database.child("users").child(userId(email)).child("gradeCalculator").setValue(grade);
 
     }
     private boolean validateForm(){

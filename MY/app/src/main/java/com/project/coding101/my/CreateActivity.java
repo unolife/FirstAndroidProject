@@ -89,11 +89,16 @@ public class CreateActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance().getReference();
         User user = new User(name, email, nickname, collagenum, tel);
-        Grade grade = new Grade(0,0,0,0,0,0,0,0,0,0);
+        Grade grade1 = new Grade(0,0,0,0,0,0,0,0,0,0);
+        Grade grade2 = new Grade(0,0,0,0,0,0,0,0,0,0);
+        Grade grade3 = new Grade(0,0,0,0,0,0,0,0,0,0);
+        Grade grade4 = new Grade(0,0,0,0,0,0,0,0,0,0);
 
-        database.child("users").child(userId(email)).setValue(user);
-        database.child("users").child(userId(email)).child("gradeCalculator").setValue(grade);
-
+        database.child("users").child(userId(email)).child("userInfo").setValue(user);
+        database.child("users").child(userId(email)).child("gradeCalculator").child("공통교양").setValue(grade1);
+        database.child("users").child(userId(email)).child("gradeCalculator").child("핵심교양").setValue(grade2);
+        database.child("users").child(userId(email)).child("gradeCalculator").child("학문기초").setValue(grade3);
+        database.child("users").child(userId(email)).child("gradeCalculator").child("전공").setValue(grade4);
     }
     private boolean validateForm(){
         boolean valid =true;

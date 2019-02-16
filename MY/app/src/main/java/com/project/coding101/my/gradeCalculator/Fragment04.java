@@ -32,39 +32,38 @@ public class Fragment04 extends Fragment {
     private FirebaseUser currentUser = mAuth.getInstance().getCurrentUser();
     DatabaseReference gradeDB;
 
-    EditText edittext_comscoreinput,edittext_one_one,edittext_one_two,edittext_two_one,edittext_two_two,edittext_three_one,edittext_three_two,edittext_four_one,edittext_four_two;
-    ToggleButton btn_comone,btn_comtwo,btn_comthree,btn_comfour,btn_comscoreinput;
-    TextView textview_comresult;
-    String total;
+    EditText edittext_majorinput,edittext_one_one,edittext_one_two,edittext_two_one,edittext_two_two,edittext_three_one,edittext_three_two,edittext_four_one,edittext_four_two;
+    ToggleButton btn_majorone,btn_majortwo,btn_majorthree,btn_majorfour,btn_majorinput;
+    TextView textview_majorresult;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
-        View view2 = inflater.inflate(R.layout.frag02,container,false);
+        View view4 = inflater.inflate(R.layout.frag04,container,false);
 
         database = FirebaseDatabase.getInstance().getReference();
-        gradeDB = database.child("users").child(userId(currentUser.getEmail())).child("gradeCalculator");
+        gradeDB = database.child("users").child(userId(currentUser.getEmail())).child("gradeCalculator").child("전공");
 
-        edittext_comscoreinput = view2.findViewById(R.id.comscoreinput);
-        edittext_one_one = view2.findViewById(R.id.EditText_one_one);
-        edittext_one_two = view2.findViewById(R.id.EditText_one_two);
-        edittext_two_one = view2.findViewById(R.id.EditText_two_one);
-        edittext_two_two = view2.findViewById(R.id.EditText_two_two);
-        edittext_three_one = view2.findViewById(R.id.EditText_three_one);
-        edittext_three_two = view2.findViewById(R.id.EditText_three_two);
-        edittext_four_one = view2.findViewById(R.id.EditText_four_one);
-        edittext_four_two = view2.findViewById(R.id.EditText_four_two);
-        btn_comone = view2.findViewById(R.id.btn_comown);
-        btn_comtwo = view2.findViewById(R.id.btn_comtwo);
-        btn_comthree = view2.findViewById(R.id.btn_comthree);
-        btn_comfour = view2.findViewById(R.id.btn_comfour);
-        btn_comscoreinput = view2.findViewById(R.id.btn_comscoreinput);
-        textview_comresult = view2.findViewById(R.id.TextView_comresult);
+        edittext_majorinput = view4.findViewById(R.id.majorinput);
+        edittext_one_one = view4.findViewById(R.id.EditText_one_one);
+        edittext_one_two = view4.findViewById(R.id.EditText_one_two);
+        edittext_two_one = view4.findViewById(R.id.EditText_two_one);
+        edittext_two_two = view4.findViewById(R.id.EditText_two_two);
+        edittext_three_one = view4.findViewById(R.id.EditText_three_one);
+        edittext_three_two = view4.findViewById(R.id.EditText_three_two);
+        edittext_four_one = view4.findViewById(R.id.EditText_four_one);
+        edittext_four_two = view4.findViewById(R.id.EditText_four_two);
+        btn_majorone = view4.findViewById(R.id.btn_majorown);
+        btn_majortwo = view4.findViewById(R.id.btn_majortwo);
+        btn_majorthree = view4.findViewById(R.id.btn_majorthree);
+        btn_majorfour = view4.findViewById(R.id.btn_majorfour);
+        btn_majorinput = view4.findViewById(R.id.btn_majorinput);
+        textview_majorresult = view4.findViewById(R.id.TextView_majorresult);
 
         initData();
 
         //데이터 저장
 
-        btn_comscoreinput.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        btn_majorinput.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
@@ -72,27 +71,27 @@ public class Fragment04 extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             Grade grade = dataSnapshot.getValue(Grade.class);
-                            try{grade.input = Integer.parseInt(edittext_comscoreinput.getText().toString());
+                            try{grade.input = Integer.parseInt(edittext_majorinput.getText().toString());
                                 grade.total = grade.input - (grade.one_one + grade.one_two + grade.two_one
                                         + grade.two_two + grade.three_one + grade.three_two + grade.four_one + grade.four_one);}catch (Exception e){grade.input=0;}
                             gradeDB.setValue(grade);
-                            textview_comresult.setText(grade.total.toString());
+                            textview_majorresult.setText(grade.total.toString());
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {}
                     });
-                    edittext_comscoreinput.setEnabled(false);
-                    edittext_comscoreinput.setTextColor(Color.BLACK);
-                    edittext_comscoreinput.setBackgroundResource(R.drawable.edit_background);//DB읽어오기 수정!
+                    edittext_majorinput.setEnabled(false);
+                    edittext_majorinput.setTextColor(Color.BLACK);
+                    edittext_majorinput.setBackgroundResource(R.drawable.edit_background);//DB읽어오기 수정!
                     edittext_one_one.requestFocus();
                 }else{
-                    edittext_comscoreinput.setBackgroundResource(R.drawable.edit_background_on);
-                    edittext_comscoreinput.setEnabled(true);
+                    edittext_majorinput.setBackgroundResource(R.drawable.edit_background_on);
+                    edittext_majorinput.setEnabled(true);
                 }
             }
         });
 
-        btn_comone.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        btn_majorone.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
@@ -106,7 +105,7 @@ public class Fragment04 extends Fragment {
                                         + grade.two_two + grade.three_one + grade.three_two + grade.four_one + grade.four_one);}
                             catch (Exception e){grade.one_one=0; grade.one_two=0;}
                             gradeDB.setValue(grade);
-                            textview_comresult.setText(grade.total.toString());
+                            textview_majorresult.setText(grade.total.toString());
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {}
@@ -127,7 +126,7 @@ public class Fragment04 extends Fragment {
             }
         });
 
-        btn_comtwo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        btn_majortwo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
@@ -141,7 +140,7 @@ public class Fragment04 extends Fragment {
                                         + grade.two_two + grade.three_one + grade.three_two + grade.four_one + grade.four_one);}
                             catch (Exception e){grade.two_one=0; grade.two_two=0;}
                             gradeDB.setValue(grade);
-                            textview_comresult.setText(grade.total.toString());
+                            textview_majorresult.setText(grade.total.toString());
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {}
@@ -162,7 +161,7 @@ public class Fragment04 extends Fragment {
                 }
             }
         });
-        btn_comthree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        btn_majorthree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
@@ -179,7 +178,7 @@ public class Fragment04 extends Fragment {
                                 grade.three_two = 0;
                             }
                             gradeDB.setValue(grade);
-                            textview_comresult.setText(grade.total.toString());
+                            textview_majorresult.setText(grade.total.toString());
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {}
@@ -201,7 +200,7 @@ public class Fragment04 extends Fragment {
             }
         });
 
-        btn_comfour.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        btn_majorfour.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
@@ -214,7 +213,7 @@ public class Fragment04 extends Fragment {
                                 grade.four_one=0; grade.four_two =0;
                             }
                             gradeDB.setValue(grade);
-                            textview_comresult.setText(grade.total.toString());
+                            textview_majorresult.setText(grade.total.toString());
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {}
@@ -234,7 +233,7 @@ public class Fragment04 extends Fragment {
             }
         });
 
-        return  view2;
+        return  view4;
     }
 
     private void initData(){
@@ -242,8 +241,8 @@ public class Fragment04 extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Grade grade = dataSnapshot.getValue(Grade.class);
-                try{edittext_comscoreinput.setText(grade.input.toString());
-                    edittext_comscoreinput.setTextColor(Color.BLACK);
+                try{edittext_majorinput.setText(grade.input.toString());
+                    edittext_majorinput.setTextColor(Color.BLACK);
                     edittext_one_one.setText(grade.one_one.toString());
                     edittext_one_one.setTextColor(Color.BLACK);
                     edittext_one_two.setText(grade.one_two.toString());

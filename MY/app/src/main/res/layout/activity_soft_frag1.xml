@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Introduction.Major_soft.Soft_frag1"
-    android:orientation="vertical">
+    tools:context=".Introduction.Major_soft.Soft_frag1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,29 +17,31 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:text="  현대 사회에서 소프트웨어는 운영체제, 통신 등 컴퓨터
-        \n자체의 구동을 위한 기반 소프트웨어 그리고 그런 기반
-        \n소프트웨어를 활용하여 서비스를 제공하는 응용
-        \n소프트웨어로 나뉜다. 이 중 응용 소프트웨어는 은행, 게임 등
+        자체의 구동을 위한 기반 소프트웨어 그리고 그런 기반
+        소프트웨어를 활용하여 서비스를 제공하는 응용
+        소프트웨어로 나뉜다. 이 중 응용 소프트웨어는 은행, 게임 등
         고객들에게 집합적 서비스를 제공하는 기업용 소프트웨어와
         엑셀, 한글 등 개인용 컴퓨터에서 특수 기능을 제공하기 위한
         독립형 소프트웨어 그리고 로봇, 자동차 등 특정 하드웨어의
         구동을 지원하기 위한 임베디드 소프트웨어로 세분화 된다.
 
         \n\n\n 응용소프트웨어전공은 응용 소프트웨어 전문 엔지니어를
-        \n양성하며, 특히 기업용 소프트웨어 엔지니어를 양성을
-        \n주 목표로 한다.
+        양성하며, 특히 기업용 소프트웨어 엔지니어를 양성을
+        주 목표로 한다.
 
         \n\n1) 소프트웨어 개발에 필요한 논리적 사고 및 비즈니스
         모델링 역량을 키운다.
         \n2) 산업체 연계를 통한 심도 있는 프로그래밍 실습 과정을
-        \n운영한다.
+        운영한다.
         \n3) 소프트웨어 개발 ∙ 관리 ∙ 감리 프로세스에 대한 전반적인
         지식을 교육한다.
 
         \n\n이러한 역량을 갖춘 엔지니어는 공공기업, 정부, 은행, 증권 등
         다양한 기업들의 전산실과 포털, 온라인 게임 등 분산
-        \n서비스를 제공하는 컨텐트 제공 기업 그리고 기업용
-        \n소프트웨어를 용역 개발하는 정보기술 서비스 기업 등의
-        \n분야로 진출 할 수 있다."/>
+        서비스를 제공하는 컨텐트 제공 기업 그리고 기업용
+        소프트웨어를 용역 개발하는 정보기술 서비스 기업 등의
+        분야로 진출 할 수 있다."/>
 
-</LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

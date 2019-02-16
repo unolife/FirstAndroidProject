@@ -1,9 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Introduction.Major_data.Data_frag2">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/data_kimdae"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름 : 김대원 \n\n연락처 :  \n\nE-mail : dwkim@mju.ac.kr \n\n교수실 : "
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="200dp" />
+
+        <TextView
+            android:id="@+id/tel1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="02-300-0641"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="53dp"
+            android:layout_marginLeft="250dp"
+            android:autoLink="phone"/>
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/data_jun"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="170dp"
+            android:layout_marginLeft="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름 : 전종훈 \n\n연락처 :  \n\nE-mail : jchun@mju.ac.kr \n\n교수실 : "
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="175dp"/>
+
+        <TextView
+            android:id="@+id/tel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="02-300-0647"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="208dp"
+            android:layout_marginLeft="250dp"
+            android:autoLink="phone"/>
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/data_kimsang"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="325dp"
+            android:layout_marginLeft="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름 : 김상균 \n\n연락처 :  \n\nE-mail : goldmunt@gmail.com \n\n교수실 : "
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="330dp"/>
+
+        <TextView
+            android:id="@+id/tel3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="031-330-6443"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="361dp"
+            android:layout_marginLeft="250dp"
+            android:autoLink="phone"/>
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/data_leegang"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="480dp"
+            android:layout_marginLeft="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름 : 이강선 \n\n연락처 :  \n\nE-mail : ksl@mju.ac.kr \n\n교수실 : "
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="485dp"/>
+
+        <TextView
+            android:id="@+id/tel4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="031-330-6444"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="517dp"
+            android:layout_marginLeft="250dp"
+            android:autoLink="phone"/>
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/data_gwon"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="635dp"
+            android:layout_marginLeft="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름 : 권동섭 \n\n연락처 : \n\nE-mail : dongseop@mju.ac.kr \n\n교수실 : "
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="640dp"/>
+
+        <TextView
+            android:id="@+id/tel5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="031-330-6785"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="672dp"
+            android:layout_marginLeft="250dp"
+            android:autoLink="phone"/>
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/data_leegyeong"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="790dp"
+            android:layout_marginLeft="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름 : 이경미 \n\n연락처 :  \n\nE-mail : imlkm70@daum.net \n\n교수실 : \n\n"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="795dp"/>
+
+    </RelativeLayout>
+
+</ScrollView>

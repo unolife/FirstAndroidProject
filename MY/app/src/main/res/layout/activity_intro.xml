@@ -57,7 +57,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="33dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="15dp"
             android:text="융합소프트웨어학부는 소프트웨어 융합 시대에 걸맞도록
         \n국제화된 감각, 인문학적 소양을 겸비한 소프트웨어

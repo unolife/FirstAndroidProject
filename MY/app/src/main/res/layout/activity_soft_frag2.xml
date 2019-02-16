@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,7 +12,7 @@
         android:src="@drawable/soft_choi"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="15dp"/>
 
     <TextView
@@ -23,7 +22,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="210dp"/>
+        android:layout_marginLeft="200dp"/>
 
     <TextView
         android:id="@+id/tel11"
@@ -33,7 +32,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_marginTop="53dp"
-        android:layout_marginLeft="260dp"
+        android:layout_marginLeft="250dp"
         android:autoLink="phone"/>
 
     <ImageView
@@ -42,7 +41,7 @@
         android:src="@drawable/soft_kim"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="170dp"/>
 
     <TextView
@@ -51,7 +50,7 @@
         android:text="이름 : 김일주 \n\n연락처 : \n\nE-mail : ijkim@mju.ac.kr \n\n교수실 : "
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="210dp"
+        android:layout_marginLeft="200dp"
         android:layout_marginTop="178dp"/>
 
     <TextView
@@ -62,7 +61,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_marginTop="210dp"
-        android:layout_marginLeft="260dp"
+        android:layout_marginLeft="250dp"
         android:autoLink="phone"/>
 
 </RelativeLayout>

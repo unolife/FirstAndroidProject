@@ -42,9 +42,10 @@
         <activity
             android:name=".gradeCalculator.CalculateActivity"
             android:label="학점계산기" />
-        <activity android:name=".Introduction.Major_data.Data_frag1" />
-        <activity android:name=".Introduction.Major_data.Data_frag2" />
-        <activity android:name=".Introduction.Major_data.Data_frag3"></activity>
+        <activity android:name=".Introduction.Major_data.Data_table" />
+        <activity android:name=".Introduction.Major_data.Data_curry" />
+        <activity android:name=".Introduction.Academy.Academy"
+                  android:label="학회 소개"></activity>
     </application>
 
 </manifest>

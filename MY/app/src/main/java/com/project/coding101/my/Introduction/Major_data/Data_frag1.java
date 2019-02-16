@@ -18,7 +18,7 @@ public class Data_frag1 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.activity_soft_frag1, container, false);
+        view = inflater.inflate(R.layout.activity_data_frag1, container, false);
         return view;
     }
 }

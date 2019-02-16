@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.content.Intent;
 import android.widget.TextView;
 
+import com.project.coding101.my.Introduction.Academy.Academy;
 import com.project.coding101.my.Introduction.Major_data.Data_Tech;
 import com.project.coding101.my.Introduction.Major_soft.Application_Soft;
 import com.project.coding101.my.R;
@@ -41,13 +42,13 @@ public class IntroActivity extends AppCompatActivity {
             }
         });
 
-//        Button acad_btn = (Button) findViewById(R.id.intro_academy);
-//        acad_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), Academy.class);
-//                startActivity(intent);
-//            }
-//        });
+        Button acad_btn = (Button) findViewById(R.id.intro_academy);
+        acad_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Academy.class);
+                startActivity(intent);
+            }
+        });
     }
 }

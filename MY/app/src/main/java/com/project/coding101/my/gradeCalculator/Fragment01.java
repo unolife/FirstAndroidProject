@@ -262,7 +262,8 @@ public class Fragment01 extends Fragment {
                     edittext_four_one.setText(grade.getFour_one().toString());
                     edittext_four_one.setTextColor(Color.BLACK);
                     edittext_four_two.setText(grade.getFour_two().toString());
-                    edittext_four_two.setTextColor(Color.BLACK);}catch (NullPointerException e){}
+                    edittext_four_two.setTextColor(Color.BLACK);
+                    textview_comresult.setText(grade.total.toString());}catch (NullPointerException e){}
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {

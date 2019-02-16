@@ -55,17 +55,16 @@
 
 
         <TextView
-            android:layout_width="350dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="15dp"
             android:text="융합소프트웨어학부는 소프트웨어 융합 시대에 걸맞도록
         \n국제화된 감각, 인문학적 소양을 겸비한 소프트웨어
         \n엔지니어를 양성하는 것을 교육 목표로 삼는다. 세부 전공인
-        응용소프트웨어와 데이터테크놀로지를 중심으로 세부 융합
-        도메인에 맞는 전문성 있고 체계적인 교육을 실시하여
+        \n응용소프트웨어와 데이터테크놀로지를 중심으로 세부 융합
+        \n도메인에 맞는 전문성 있고 체계적인 교육을 실시하여
         \n전문가를 양성하고자 한다. " />
-
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -91,16 +90,16 @@
                 android:layout_marginRight="30dp"
                 android:text="데이터테크놀로지 전공" />
 
-        </RelativeLayout>
+            <Button
+                android:id="@+id/intro_academy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="95dp"
+                android:text="학회 소개" />
 
-        <Button
-            android:id="@+id/intro_academy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:text="학회 소개" />
+        </RelativeLayout>
 
     </LinearLayout>
 

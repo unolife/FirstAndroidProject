@@ -17,30 +17,47 @@
         android:layout_height="wrap_content">
 
     </android.support.v4.view.ViewPager>
-    <TableLayout
+    <LinearLayout
         android:layout_alignParentBottom="true"
         android:id="@+id/total_score"
         android:background="@drawable/context_background"
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TableRow>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
             <TextView android:text="총학점: "
                 android:textSize="25dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="28dp"/>
-            <TextView android:text=""
+                android:layout_marginLeft="28dp"
+                android:layout_height="30dp"
+                android:layout_width="90dp" />
+            <TextView
+                android:text=""
                 android:id="@+id/TextView_totalgrade"
-                android:textSize="25dp"/>
-        </TableRow>
-        <TableRow>
+                android:textSize="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
             <TextView android:text="남은 총학점: "
                 android:layout_marginLeft="28dp"
                 android:layout_marginBottom="20dp"
-                android:textSize="25dp"/>
+                android:textSize="25dp"
+                android:layout_height="30dp"
+                android:layout_width="140dp"/>
             <TextView android:text=""
                 android:id="@+id/TextView_leftgrade"
-                android:textSize="25dp"/>
-        </TableRow>
-    </TableLayout>
+                android:textSize="25dp"
+                android:layout_height="30dp"
+                android:layout_width="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>

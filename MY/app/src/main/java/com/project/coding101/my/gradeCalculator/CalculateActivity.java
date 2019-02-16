@@ -23,7 +23,7 @@ public class CalculateActivity extends AppCompatActivity {
     TextView tot, left;
     private FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
     private DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-    private DatabaseReference gradeDB, gradeDB2, gradeDB3, gradeDB4;
+    private DatabaseReference gradeDB;
 
 
     protected  void onCreate(Bundle savedInstanceState){
@@ -58,29 +58,25 @@ public class CalculateActivity extends AppCompatActivity {
         tab.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewpager));
         viewpager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tab));
 
-//        gradeDB.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                Integer input = 0;
-//                Integer leftgd = 0;
-//                for (DataSnapshot gradeSnapshot: dataSnapshot.getChildren()){
-//                    Grade grade1 = gradeSnapshot.child("공통교양").getValue(Grade.class);
-//                    Grade grade2 = gradeSnapshot.child("핵심교양").getValue(Grade.class);
-//                    Grade grade3 = gradeSnapshot.child("학문기초").getValue(Grade.class);
-//                    Grade grade4 = gradeSnapshot.child("전공").getValue(Grade.class);
-//                    input = grade1.input + grade2.input + grade3.input + grade4.input;
-//                    leftgd = grade1.total + grade2.total + grade3.total + grade4.total;
-//                }
-//                tot.setText(input.toString());
-//                left.setText(leftgd.toString());
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
+        gradeDB.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Grade grade1 = dataSnapshot.child("공통교양").getValue(Grade.class);
+                Grade grade2 = dataSnapshot.child("핵심교양").getValue(Grade.class);
+                Grade grade3 = dataSnapshot.child("학문기초").getValue(Grade.class);
+                Grade grade4 = dataSnapshot.child("전공").getValue(Grade.class);
+                TotalGrade totgd = dataSnapshot.child("total").getValue(TotalGrade.class);
+                totgd.totalgd = grade1.input + grade2.input + grade3.input + grade4.input;
+                totgd.leftgd = grade1.total + grade2.total + grade3.total + grade4.total;
+                tot.setText(totgd.totalgd.toString());
+                left.setText(totgd.leftgd.toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
     private String userId(String email){

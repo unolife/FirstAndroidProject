@@ -72,6 +72,7 @@
             android:layout_width="70dp"
             android:text="1학년" />
         <EditText
+            android:inputType="number"
             android:layout_marginRight="10dp"
             android:id="@+id/EditText_one_one"
             android:layout_width="70dp"
@@ -81,6 +82,7 @@
             />
 
         <EditText
+            android:inputType="number"
             android:id="@+id/EditText_one_two"
             android:enabled="false"
             android:layout_width="70dp"
@@ -112,6 +114,7 @@
             android:layout_width="70dp"
             android:text="2학년" />
         <EditText
+            android:inputType="number"
             android:layout_marginRight="10dp"
             android:enabled="false"
             android:id="@+id/EditText_two_one"
@@ -121,6 +124,7 @@
             />
 
         <EditText
+            android:inputType="number"
             android:enabled="false"
             android:id="@+id/EditText_two_two"
             android:layout_width="70dp"
@@ -152,6 +156,7 @@
             android:layout_width="70dp"
             android:text="3학년" />
         <EditText
+            android:inputType="number"
             android:enabled="false"
             android:layout_marginRight="10dp"
             android:id="@+id/EditText_three_one"
@@ -161,6 +166,7 @@
             />
 
         <EditText
+            android:inputType="number"
             android:id="@+id/EditText_three_two"
             android:enabled="false"
             android:layout_width="70dp"
@@ -192,6 +198,7 @@
             android:layout_width="70dp"
             android:text="4학년" />
         <EditText
+            android:inputType="number"
             android:enabled="false"
             android:layout_marginRight="10dp"
             android:id="@+id/EditText_four_one"
@@ -201,6 +208,7 @@
             />
 
         <EditText
+            android:inputType="number"
             android:enabled="false"
             android:id="@+id/EditText_four_two"
             android:layout_width="70dp"

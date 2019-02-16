@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.project.coding101.my.gradeCalculator.Grade;
+import com.project.coding101.my.gradeCalculator.TotalGrade;
 
 public class CreateActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -99,6 +100,8 @@ public class CreateActivity extends AppCompatActivity {
         database.child("users").child(userId(email)).child("gradeCalculator").child("핵심교양").setValue(grade2);
         database.child("users").child(userId(email)).child("gradeCalculator").child("학문기초").setValue(grade3);
         database.child("users").child(userId(email)).child("gradeCalculator").child("전공").setValue(grade4);
+        database.child("users").child(userId(email)).child("gradeCalculator").child("total").setValue(new TotalGrade(0,0));
+
     }
     private boolean validateForm(){
         boolean valid =true;

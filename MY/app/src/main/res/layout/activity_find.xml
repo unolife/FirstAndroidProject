@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".FindActivity">
 
+    <Button
+        android:id="@+id/verifyEmailButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="verify"
+        />
+
 </LinearLayout>

@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mypage.Mypage"></activity>
+        <activity android:name=".mypage.Mypage" />
         <activity android:name=".FindActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
@@ -19,23 +19,32 @@
             </intent-filter>
         </activity>
         <activity android:name=".CreateActivity" />
-        <activity android:name=".MenuActivity"
-                  android:label="메뉴"/>
-        <activity android:name=".Introduction.IntroActivity"
-                  android:label="학과 소개"/>
-        <activity android:name=".Introduction.Major_soft.Application_Soft"
-                  android:label="응용소프트웨어"/>
-        <activity android:name=".Introduction.Major_data.Data_Tech"
-                  android:label="데이터테크놀로지"/>
-        <activity android:name=".Introduction.Major_soft.Soft_table"/>
-        <activity android:name=".Introduction.Major_soft.Soft_curry"/>
-        <activity android:name=".studentBoard.MainBoard"
-                  android:label="게시판"/>
-        <activity android:name=".studentBoard.WriteActivity"
-                  android:label="글쓰기"/>
-        <activity android:name=".gradeCalculator.CalculateActivity"
-                  android:label="학점계산기"/>
-
+        <activity
+            android:name=".MenuActivity"
+            android:label="메뉴" />
+        <activity
+            android:name=".Introduction.IntroActivity"
+            android:label="학과 소개" />
+        <activity
+            android:name=".Introduction.Major_soft.Application_Soft"
+            android:label="응용소프트웨어" />
+        <activity
+            android:name=".Introduction.Major_data.Data_Tech"
+            android:label="데이터테크놀로지" />
+        <activity android:name=".Introduction.Major_soft.Soft_table" />
+        <activity android:name=".Introduction.Major_soft.Soft_curry" />
+        <activity
+            android:name=".studentBoard.MainBoard"
+            android:label="게시판" />
+        <activity
+            android:name=".studentBoard.WriteActivity"
+            android:label="글쓰기" />
+        <activity
+            android:name=".gradeCalculator.CalculateActivity"
+            android:label="학점계산기" />
+        <activity android:name=".Introduction.Major_data.Data_frag1" />
+        <activity android:name=".Introduction.Major_data.Data_frag2" />
+        <activity android:name=".Introduction.Major_data.Data_frag3"></activity>
     </application>
 
 </manifest>

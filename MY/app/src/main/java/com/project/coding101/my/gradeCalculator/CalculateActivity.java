@@ -2,23 +2,38 @@ package com.project.coding101.my.gradeCalculator;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.project.coding101.my.R;
 
 public class CalculateActivity extends AppCompatActivity {
-    TabLayout.Tab tab1;
-    TabLayout.Tab tab2;
-    TabLayout.Tab tab3;
-    TabLayout.Tab tab4;
+    TabLayout.Tab tab1, tab2, tab3, tab4;
+    TextView tot, left;
+    private FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+    private DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference gradeDB, gradeDB2, gradeDB3, gradeDB4;
+
 
     protected  void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grade_calculation);
 
+        gradeDB = database.child("users").child(userId(currentUser.getEmail())).child("gradeCalculator");
 
+        tot = findViewById(R.id.TextView_totalgrade);
+        left = findViewById(R.id.TextView_leftgrade);
 
         //자바 파일에서 어뎁터 생성
         PagerAdapter pageradapter = new PagerAdapter(getSupportFragmentManager());
@@ -43,6 +58,40 @@ public class CalculateActivity extends AppCompatActivity {
         tab.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewpager));
         viewpager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tab));
 
+//        gradeDB.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                Integer input = 0;
+//                Integer leftgd = 0;
+//                for (DataSnapshot gradeSnapshot: dataSnapshot.getChildren()){
+//                    Grade grade1 = gradeSnapshot.child("공통교양").getValue(Grade.class);
+//                    Grade grade2 = gradeSnapshot.child("핵심교양").getValue(Grade.class);
+//                    Grade grade3 = gradeSnapshot.child("학문기초").getValue(Grade.class);
+//                    Grade grade4 = gradeSnapshot.child("전공").getValue(Grade.class);
+//                    input = grade1.input + grade2.input + grade3.input + grade4.input;
+//                    leftgd = grade1.total + grade2.total + grade3.total + grade4.total;
+//                }
+//                tot.setText(input.toString());
+//                left.setText(leftgd.toString());
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+
+    }
+    private String userId(String email){
+        String ans ="";
+        for(int i=0; i<email.length();i++) {
+            char a =email.charAt(i);
+            if(a!='.'&&a!='@') {
+                ans +=a;
+            }
+        }
+        return ans;
     }
 
 }

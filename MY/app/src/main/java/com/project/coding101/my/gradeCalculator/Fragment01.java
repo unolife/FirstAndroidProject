@@ -37,7 +37,6 @@ public class Fragment01 extends Fragment {
     EditText edittext_comscoreinput,edittext_one_one,edittext_one_two,edittext_two_one,edittext_two_two,edittext_three_one,edittext_three_two,edittext_four_one,edittext_four_two;
     ToggleButton btn_comone,btn_comtwo,btn_comthree,btn_comfour,btn_comscoreinput;
     TextView textview_comresult;
-    String total;
 
     public Fragment01 (){
     }
@@ -46,7 +45,7 @@ public class Fragment01 extends Fragment {
         View view1 = inflater.inflate(R.layout.frag01,container,false);
 
         database = FirebaseDatabase.getInstance().getReference();
-        gradeDB = database.child("users").child(userId(currentUser.getEmail())).child("gradeCalculator");
+        gradeDB = database.child("users").child(userId(currentUser.getEmail())).child("gradeCalculator").child("공통교양");
 
         edittext_comscoreinput = view1.findViewById(R.id.comscoreinput);
         edittext_one_one = view1.findViewById(R.id.EditText_one_one);

@@ -32,19 +32,18 @@ public class Fragment02 extends Fragment {
     private FirebaseUser currentUser = mAuth.getInstance().getCurrentUser();
     DatabaseReference gradeDB;
 
-    EditText edittext_comscoreinput,edittext_one_one,edittext_one_two,edittext_two_one,edittext_two_two,edittext_three_one,edittext_three_two,edittext_four_one,edittext_four_two;
-    ToggleButton btn_comone,btn_comtwo,btn_comthree,btn_comfour,btn_comscoreinput;
-    TextView textview_comresult;
-    String total;
+    EditText edittext_corescoreinput,edittext_one_one,edittext_one_two,edittext_two_one,edittext_two_two,edittext_three_one,edittext_three_two,edittext_four_one,edittext_four_two;
+    ToggleButton btn_coreone,btn_coretwo,btn_corethree,btn_corefour,btn_corescoreinput;
+    TextView textview_coreresult;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
         View view2 = inflater.inflate(R.layout.frag02,container,false);
 
         database = FirebaseDatabase.getInstance().getReference();
-        gradeDB = database.child("users").child(userId(currentUser.getEmail())).child("gradeCalculator");
+        gradeDB = database.child("users").child(userId(currentUser.getEmail())).child("gradeCalculator").child("핵심교양");
 
-        edittext_comscoreinput = view2.findViewById(R.id.comscoreinput);
+        edittext_corescoreinput = view2.findViewById(R.id.corescoreinput);
         edittext_one_one = view2.findViewById(R.id.EditText_one_one);
         edittext_one_two = view2.findViewById(R.id.EditText_one_two);
         edittext_two_one = view2.findViewById(R.id.EditText_two_one);
@@ -53,18 +52,18 @@ public class Fragment02 extends Fragment {
         edittext_three_two = view2.findViewById(R.id.EditText_three_two);
         edittext_four_one = view2.findViewById(R.id.EditText_four_one);
         edittext_four_two = view2.findViewById(R.id.EditText_four_two);
-        btn_comone = view2.findViewById(R.id.btn_comown);
-        btn_comtwo = view2.findViewById(R.id.btn_comtwo);
-        btn_comthree = view2.findViewById(R.id.btn_comthree);
-        btn_comfour = view2.findViewById(R.id.btn_comfour);
-        btn_comscoreinput = view2.findViewById(R.id.btn_comscoreinput);
-        textview_comresult = view2.findViewById(R.id.TextView_comresult);
+        btn_coreone = view2.findViewById(R.id.btn_coreown);
+        btn_coretwo = view2.findViewById(R.id.btn_coretwo);
+        btn_corethree = view2.findViewById(R.id.btn_corethree);
+        btn_corefour = view2.findViewById(R.id.btn_corefour);
+        btn_corescoreinput = view2.findViewById(R.id.btn_corescoreinput);
+        textview_coreresult = view2.findViewById(R.id.TextView_coreresult);
 
         initData();
 
         //데이터 저장
 
-        btn_comscoreinput.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        btn_corescoreinput.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
@@ -72,27 +71,27 @@ public class Fragment02 extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             Grade grade = dataSnapshot.getValue(Grade.class);
-                            try{grade.input = Integer.parseInt(edittext_comscoreinput.getText().toString());
+                            try{grade.input = Integer.parseInt(edittext_corescoreinput.getText().toString());
                                 grade.total = grade.input - (grade.one_one + grade.one_two + grade.two_one
                                         + grade.two_two + grade.three_one + grade.three_two + grade.four_one + grade.four_one);}catch (Exception e){grade.input=0;}
                             gradeDB.setValue(grade);
-                            textview_comresult.setText(grade.total.toString());
+                            textview_coreresult.setText(grade.total.toString());
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {}
                     });
-                    edittext_comscoreinput.setEnabled(false);
-                    edittext_comscoreinput.setTextColor(Color.BLACK);
-                    edittext_comscoreinput.setBackgroundResource(R.drawable.edit_background);//DB읽어오기 수정!
+                    edittext_corescoreinput.setEnabled(false);
+                    edittext_corescoreinput.setTextColor(Color.BLACK);
+                    edittext_corescoreinput.setBackgroundResource(R.drawable.edit_background);//DB읽어오기 수정!
                     edittext_one_one.requestFocus();
                 }else{
-                    edittext_comscoreinput.setBackgroundResource(R.drawable.edit_background_on);
-                    edittext_comscoreinput.setEnabled(true);
+                    edittext_corescoreinput.setBackgroundResource(R.drawable.edit_background_on);
+                    edittext_corescoreinput.setEnabled(true);
                 }
             }
         });
 
-        btn_comone.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        btn_coreone.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
@@ -106,7 +105,7 @@ public class Fragment02 extends Fragment {
                                         + grade.two_two + grade.three_one + grade.three_two + grade.four_one + grade.four_one);}
                             catch (Exception e){grade.one_one=0; grade.one_two=0;}
                             gradeDB.setValue(grade);
-                            textview_comresult.setText(grade.total.toString());
+                            textview_coreresult.setText(grade.total.toString());
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {}
@@ -127,7 +126,7 @@ public class Fragment02 extends Fragment {
             }
         });
 
-        btn_comtwo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        btn_coretwo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
@@ -141,7 +140,7 @@ public class Fragment02 extends Fragment {
                                         + grade.two_two + grade.three_one + grade.three_two + grade.four_one + grade.four_one);}
                             catch (Exception e){grade.two_one=0; grade.two_two=0;}
                             gradeDB.setValue(grade);
-                            textview_comresult.setText(grade.total.toString());
+                            textview_coreresult.setText(grade.total.toString());
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {}
@@ -162,7 +161,7 @@ public class Fragment02 extends Fragment {
                 }
             }
         });
-        btn_comthree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        btn_corethree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
@@ -179,7 +178,7 @@ public class Fragment02 extends Fragment {
                                 grade.three_two = 0;
                             }
                             gradeDB.setValue(grade);
-                            textview_comresult.setText(grade.total.toString());
+                            textview_coreresult.setText(grade.total.toString());
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {}
@@ -201,7 +200,7 @@ public class Fragment02 extends Fragment {
             }
         });
 
-        btn_comfour.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        btn_corefour.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
@@ -214,7 +213,7 @@ public class Fragment02 extends Fragment {
                                 grade.four_one=0; grade.four_two =0;
                             }
                             gradeDB.setValue(grade);
-                            textview_comresult.setText(grade.total.toString());
+                            textview_coreresult.setText(grade.total.toString());
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {}
@@ -242,8 +241,8 @@ public class Fragment02 extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Grade grade = dataSnapshot.getValue(Grade.class);
-                try{edittext_comscoreinput.setText(grade.input.toString());
-                    edittext_comscoreinput.setTextColor(Color.BLACK);
+                try{edittext_corescoreinput.setText(grade.input.toString());
+                    edittext_corescoreinput.setTextColor(Color.BLACK);
                     edittext_one_one.setText(grade.one_one.toString());
                     edittext_one_one.setTextColor(Color.BLACK);
                     edittext_one_two.setText(grade.one_two.toString());
@@ -267,21 +266,6 @@ public class Fragment02 extends Fragment {
             }
         });
     }
-//    private void Calculate(){
-//        gradeDB.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                Grade grade = dataSnapshot.getValue(Grade.class);
-//                Integer total = grade.input - (grade.one_one + grade.one_two + grade.two_one + grade.two_two + grade.three_one + grade.three_two + grade.four_one + grade.four_one);
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-//    }
 
     private String userId(String email){
         String ans ="";

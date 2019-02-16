@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="match_parent"
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -29,6 +30,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="28dp"/>
             <TextView android:text=""
+                android:id="@+id/TextView_totalgrade"
                 android:textSize="25dp"/>
         </TableRow>
         <TableRow>
@@ -37,6 +39,7 @@
                 android:layout_marginBottom="20dp"
                 android:textSize="25dp"/>
             <TextView android:text=""
+                android:id="@+id/TextView_leftgrade"
                 android:textSize="25dp"/>
         </TableRow>
     </TableLayout>

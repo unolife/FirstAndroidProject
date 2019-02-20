@@ -103,6 +103,8 @@ public class CreateActivity extends AppCompatActivity {
         database.child("users").child(userId(email)).child("gradeCalculator").child("total").setValue(new TotalGrade(0,0));
 
     }
+
+
     private boolean validateForm(){
         boolean valid =true;
 

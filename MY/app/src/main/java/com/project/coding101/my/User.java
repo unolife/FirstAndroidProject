@@ -1,5 +1,8 @@
 package com.project.coding101.my;
 
+import com.google.firebase.database.IgnoreExtraProperties;
+
+@IgnoreExtraProperties
 public class User {
 
     public String username;
@@ -18,5 +21,25 @@ public class User {
         this.collagenum = collagenum;
         this.tel = tel;
 
+    }
+
+    public String getCollagenum() {
+        return collagenum;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getTel() {
+        return tel;
     }
 }

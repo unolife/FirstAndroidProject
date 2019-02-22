@@ -16,8 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:text="  현대 사회에서 소프트웨어는 운영체제, 통신 등 컴퓨터
-        자체의 구동을 위한 기반 소프트웨어 그리고 그런 기반
+        android:text="  현대 사회에서 소프트웨어는 운영체제, 통신 등 컴퓨터 자체의 구동을 위한 기반 소프트웨어 그리고 그런 기반
         소프트웨어를 활용하여 서비스를 제공하는 응용
         소프트웨어로 나뉜다. 이 중 응용 소프트웨어는 은행, 게임 등
         고객들에게 집합적 서비스를 제공하는 기업용 소프트웨어와

@@ -40,11 +40,13 @@ public class Mypage extends AppCompatActivity {
         userDB.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                User userEmail = dataSnapshot.getValue(User.class);
-//                User userNickname = dataSnapshot.child("nickname").getValue(User.class);
+                User currentUser = dataSnapshot.getValue(User.class);
 
-                email.setText(userEmail.toString());
-//                nickname.setText(userNickname.toString());
+                email.setText(currentUser.email.toString());
+                nickname.setText(currentUser.nickname.toString());
+                name.setText(currentUser.username.toString());
+                collagenum.setText(currentUser.collagenum.toString());
+                tel.setText(currentUser.tel.toString());
             }
 
             @Override

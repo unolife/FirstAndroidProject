@@ -43,6 +43,9 @@
             android:name=".studentBoard.WriteActivity"
             android:label="글쓰기" />
         <activity
+            android:name=".studentBoard.PostDetailActivity"
+            android:label="글읽기" />
+        <activity
             android:name=".gradeCalculator.CalculateActivity"
             android:label="학점계산기" />
         <activity android:name=".Introduction.Major_data.Data_table" />

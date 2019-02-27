@@ -26,15 +26,14 @@
         android:text="1. CODING101"/>
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:id="@+id/ImageView"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/coding"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="300px"
-        android:layout_marginLeft="20dp"
-        android:maxWidth="200dp"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"/>
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="118dp"
+        android:visibility="visible"
+        tools:visibility="visible"/>
 
 </RelativeLayout>

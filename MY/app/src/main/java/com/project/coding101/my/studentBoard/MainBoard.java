@@ -2,51 +2,55 @@ package com.project.coding101.my.studentBoard;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.Button;
 
 import com.project.coding101.my.R;
 
-import java.util.ArrayList;
+public class  MainBoard extends BaseActivity {
 
-public class MainBoard extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
 
-    private ArrayList<recycler_item> mArrayList;
-    private MyAdapter mAdapter;
-    private RecyclerView mRecyclerView;
-    private LinearLayoutManager mLinearLayoutManager;
-
+    private FragmentPagerAdapter mPagerAdapter;
+    private ViewPager mViewPager;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycler);
+        setContentView(R.layout.activity_mainboard);
 
-        mRecyclerView = (RecyclerView)findViewById(R.id.my_recycler_view);
-        mLinearLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLinearLayoutManager);
+        // Create the adapter that will return a fragment for each section
+        mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
+            private final Fragment[] mFragments = new Fragment[] {
+                    new RecentPostsFragment()
+            };
+            private final String[] mFragmentNames = new String[] {
+                    getString(R.string.heading_recent)
+            };
+            @Override
+            public Fragment getItem(int position) {
+                return mFragments[position];
+            }
+            @Override
+            public int getCount() {
+                return mFragments.length;
+            }
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return mFragmentNames[position];
+            }
+        };
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = findViewById(R.id.container);
+        mViewPager.setAdapter(mPagerAdapter);
 
-        mArrayList = new ArrayList<>();
-
-        mAdapter = new MyAdapter(mArrayList);
-        mRecyclerView.setAdapter(mAdapter);
-
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
-                mLinearLayoutManager.getOrientation());
-        mRecyclerView.addItemDecoration(dividerItemDecoration);
-
-        Button soft_btn = (Button) findViewById(R.id.button_main_insert);
-        soft_btn.setOnClickListener(new View.OnClickListener() {
+        // Button launches NewPostActivity
+        findViewById(R.id.fabNewPost).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(getApplicationContext() , writeActivity.class);
-                Intent intent = new Intent(v.getContext(), WriteActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(MainBoard.this, WriteActivity.class));
             }
         });
     }

@@ -1,4 +1,4 @@
-package com.project.coding101.my.mypage;
+package com.project.coding101.my.findEmalPassword;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

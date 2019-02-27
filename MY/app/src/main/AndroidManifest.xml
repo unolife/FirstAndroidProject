@@ -18,9 +18,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".mypage.Mypage"
+            android:name=".MypageActivity"
             android:label="마이 페이지"/>
-        <activity android:name=".FindActivity" />
+        <activity
+            android:name=".findEmalPassword.FindActivity"
+            android:label="아이디/ 비밀번호 찾기"/>
         <activity android:name=".CreateActivity" />
         <activity
             android:name=".MenuActivity"

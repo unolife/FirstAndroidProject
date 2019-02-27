@@ -2,7 +2,6 @@ package com.project.coding101.my;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.sax.StartElementListener;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +12,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.project.coding101.my.Introduction.IntroActivity;
 import com.project.coding101.my.gradeCalculator.CalculateActivity;
-import com.project.coding101.my.mypage.Mypage;
 import com.project.coding101.my.studentBoard.MainBoard;
 
 
@@ -51,7 +49,7 @@ public class MenuActivity extends AppCompatActivity{
         btn_mypage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, Mypage.class);
+                Intent intent = new Intent(MenuActivity.this, MypageActivity.class);
                 startActivity(intent);
             }
         });

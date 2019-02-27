@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="100dp"
+    android:layout_height="50dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:text="삭제" />
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:paddingRight="0dp"
+        android:text="수정"/>
+
+</LinearLayout>

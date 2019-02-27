@@ -102,7 +102,7 @@ WriteActivity extends BaseActivity {
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             // Write new post
-                            writeNewPost(userId, user.username, title, body);
+                            writeNewPost(userId, currentUser.getEmail(), title, body);
                         }
 
                         // Finish this Activity, back to the stream

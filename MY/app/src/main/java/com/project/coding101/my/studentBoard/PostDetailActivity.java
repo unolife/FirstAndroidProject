@@ -146,7 +146,7 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         // Get user information
                         User user = dataSnapshot.getValue(User.class);
-                        String authorName = currentUser.getEmail();
+                        String authorName = user.nickname;
 
                         // Create new comment object
                         String commentText = mCommentField.getText().toString();

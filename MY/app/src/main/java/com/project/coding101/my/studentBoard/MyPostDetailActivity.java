@@ -28,7 +28,7 @@ import com.project.coding101.my.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PostDetailActivity extends BaseActivity implements View.OnClickListener {
+public class MyPostDetailActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = "PostDetailActivity";
 
@@ -51,7 +51,7 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post_detail);
+        setContentView(R.layout.activity_mypost_detail);
 
         // Get post key from intent
         mPostKey = getIntent().getStringExtra(EXTRA_POST_KEY);
@@ -101,7 +101,7 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
                 // Getting Post failed, log a message
                 Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
                 // [START_EXCLUDE]
-                Toast.makeText(PostDetailActivity.this, "Failed to load post.",
+                Toast.makeText(MyPostDetailActivity.this, "Failed to load post.",
                         Toast.LENGTH_SHORT).show();
                 // [END_EXCLUDE]
             }
@@ -166,12 +166,12 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
                 });
     }
 
-    private String userId(String email){
-        String ans ="";
-        for(int i=0; i<email.length();i++) {
-            char a =email.charAt(i);
-            if(a!='.'&&a!='@') {
-                ans +=a;
+    private String userId(String email) {
+        String ans = "";
+        for (int i = 0; i < email.length(); i++) {
+            char a = email.charAt(i);
+            if (a != '.' && a != '@') {
+                ans += a;
             }
         }
         return ans;

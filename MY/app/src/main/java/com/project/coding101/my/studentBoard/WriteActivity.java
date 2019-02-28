@@ -86,7 +86,7 @@ WriteActivity extends BaseActivity {
 
         // [START single_value_read]
         final String userId = getUid();
-        mDatabase.child("users").child(userId(currentUser.getEmail())).addListenerForSingleValueEvent(
+        mDatabase.child("users").child(userId(currentUser.getEmail())).child("userInfo").addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -102,7 +102,7 @@ WriteActivity extends BaseActivity {
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             // Write new post
-                            writeNewPost(userId, currentUser.getEmail(), title, body);
+                            writeNewPost(userId, user.nickname, title, body);
                         }
 
                         // Finish this Activity, back to the stream

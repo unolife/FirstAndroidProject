@@ -19,13 +19,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.project.coding101.my.findEmalPassword.FindActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "EmailPassword";
     private FirebaseAuth mAuth;
 
     TextInputEditText TextInputEditText_ID, TextInputEditText_password;
-    Button Button_Iogin, join, find;
+    Button Button_Iogin, Button_join, Button_find;
     String id, password;
 
 
@@ -38,25 +39,35 @@ public class LoginActivity extends AppCompatActivity {
         TextInputEditText_password = findViewById(R.id.TextInputEditText_password);
 
         Button_Iogin = findViewById(R.id.Button_Iogin);
-        join = findViewById(R.id.Button_join);
-        find = findViewById(R.id.Button_find);
+        Button_join = findViewById(R.id.Button_join);
+        Button_find = findViewById(R.id.Button_find);
 
         mAuth = FirebaseAuth.getInstance();
 
         TextInputEditText_ID.addTextChangedListener(new TextWatcher() {
+            @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                id = s.toString();}
+                id = s.toString();
+            }
+
+            @Override
             public void afterTextChanged(Editable s) {}
         });
         TextInputEditText_password.addTextChangedListener(new TextWatcher() {
+            @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                password = s.toString();}
+                password = s.toString();
+            }
+            @Override
             public void afterTextChanged(Editable s) {}
         });
 
-        join.setOnClickListener(new View.OnClickListener() {
+        Button_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, CreateActivity.class);
@@ -70,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-        find.setOnClickListener(new View.OnClickListener(){
+        Button_find.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {

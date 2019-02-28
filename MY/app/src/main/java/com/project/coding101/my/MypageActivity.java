@@ -1,4 +1,4 @@
-package com.project.coding101.my.mypage;
+package com.project.coding101.my;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.project.coding101.my.R;
 import com.project.coding101.my.User;
 
-public class Mypage extends AppCompatActivity {
+public class MypageActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private DatabaseReference userDB;

@@ -67,4 +67,9 @@
         android:layout_height="50dp"
         android:text="이메일 찾기"/>
 
+    <TextView
+        android:id="@+id/ex"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+
 </LinearLayout>

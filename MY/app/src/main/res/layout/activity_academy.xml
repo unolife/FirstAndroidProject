@@ -27,13 +27,21 @@
 
     <ImageView
         android:id="@+id/ImageView"
-        android:layout_width="340dp"
+        android:src="@drawable/coding"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="17dp"
-        android:layout_marginTop="118dp"
-        android:visibility="visible"
-        tools:visibility="visible"/>
+        android:layout_marginTop="90dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="30dp"
+        android:text="2. SDS"/>
 
 </RelativeLayout>
